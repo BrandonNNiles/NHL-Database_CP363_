@@ -1,2 +1,4 @@
 # CP363-Group-Project
-lorem
+SQL database project for CP363.
+
+*complete later*
