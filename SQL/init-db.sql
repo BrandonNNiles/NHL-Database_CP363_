@@ -1,12 +1,13 @@
---Basics
+/*Basics*/
 DROP DATABASE IF EXISTS `nhl363`;
 CREATE DATABASE `nhl363`; 
 USE `nhl363`;
 
---Configuration related
+/*Don't touch these*/
 SET NAMES utf8 ;
 SET character_set_client = utf8mb4 ;
 
+/*Create Tables*/
 CREATE TABLE `GAMES`(
     `game_id` int(8) NOT NULL,
     `start_date` date NOT NULL,
