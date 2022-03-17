@@ -16,7 +16,23 @@ CREATE TABLE `GAMES`(
     `home_team` char(50) NOT NULL,
     `away_team` char(50) NOT NULL,
     `arena_name` char(50) NOT NULL,
-    PRIMARY KEY (`game_id`),
-    KEY `FK_home_team` (`home_team`),
-    KEY `FK_away_team` (`away_team`)
-)
+    PRIMARY KEY (`game_id`)
+    /*
+    Do proper references here
+    FOREIGN KEY `FK_home_team` (`home_team`),
+    FOREIGN KEY `FK_away_team` (`away_team`)
+    */
+);
+CREATE TABLE `INDIVIDUAL_MATCH`(
+    `game_id` int(8) NOT NULL,
+    `home_team` char(50) NOT NULL,
+    `away_team` char(50) NOT NULL,
+    `home_team_goals` int(3) NOT NULL,
+    `away_team_goals` int(3) NOT NULL,
+    `home_team_shots` int(5) NOT NULL,
+    `away_team_shots` int(5) NOT NULL,
+    PRIMARY KEY (`game_id`)
+    /*
+    is game_id also a foriegn key?
+    */
+);
