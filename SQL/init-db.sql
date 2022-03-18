@@ -41,7 +41,61 @@ CREATE TABLE `INDIVIDUAL_MATCH`(
     `away_team_goals` int(3) NOT NULL,
     `home_team_shots` int(5) NOT NULL,
     `away_team_shots` int(5) NOT NULL,
-    PRIMARY KEY (`game_id`).
+    PRIMARY KEY (`game_id`),
     FOREIGN KEY (`home_team`) REFERENCES FRANCHISES(`team_name`),
     FOREIGN KEY (`away_team`) REFERENCES FRANCHISES(`team_name`)
+);
+
+CREATE TABLE `PLAYERS`(
+    `player_id` char(50) NOT NULL,
+    `first_name` char(50) NOT NULL,
+    `last_name` char(50) NOT NULL,
+    `bdate` char(50) NOT NULL,
+    `position` char(50) NOT NULL,
+    `draft_round` int(8) NOT NULL,
+    `draft_number` int(8) NOT NULL,
+    `status` char(50) NOT NULL, 
+    `team_name` char(50) NOT NULL, 
+    PRIMARY KEY (`player_id`)
+);
+
+CREATE TABLE `INDIVIDUAL_STATS`(
+    `player_id` char(50) NOT NULL,
+    `first_name` char(50) NOT NULL,
+    `last_name` char(50) NOT NULL,
+    `position` char(50) NOT NULL,
+    `goals` int(8) NOT NULL,
+    `goals_pergame` int(8) NOT NULL,
+    `powerplay_goals` int(8) NOT NULL,
+    `shorthand_goals` int(8) NOT NULL,
+    `overtime_goals` int(8) NOT NULL,
+    `gamewinning_goals` int(8) NOT NULL,
+    `games_played` int(8) NOT NULL,
+    `plus_minus` int(8) NOT NULL,
+    `shots` int(8) NOT NULL,
+    `shooting_percentage` int(8) NOT NULL,
+    `time_on_ice` int(8) NOT NULL,
+    `primary_assists` int(8) NOT NULL,
+    `secondary_assists` int(8) NOT NULL,
+    PRIMARY KEY (`player_id`)
+);
+
+CREATE TABLE `TEAM_STATS`(
+    `team_name` char(50) NOT NULL,
+    `wins` int(8) NOT NULL,
+    `losses` int(8) NOT NULL,
+    `total_goals` int(8) NOT NULL,
+    `total_powerplay_goals` int(8) NOT NULL,
+    `total_shorthand_goals` int(8) NOT NULL,
+    `total_overtime_goals` int(8) NOT NULL,
+    `shootout_games_won` int(8) NOT NULL,
+    `regulation_wins` int(8) NOT NULL,
+    `overtime_losses` int(8) NOT NULL,
+    `overtime_wins` int(8) NOT NULL,
+    `point_percentages` int(8) NOT NULL,
+    `powerplay_percentage` int(8) NOT NULL,
+    `penaltykill_percentage` int(8) NOT NULL,
+    `goals_for` int(8) NOT NULL,
+    `goals_against` int(8) NOT NULL,
+    PRIMARY KEY (`team_name`)
 );
