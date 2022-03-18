@@ -47,7 +47,7 @@ CREATE TABLE `INDIVIDUAL_MATCH`(
 );
 
 CREATE TABLE `PLAYERS`(
-    `player_id` char(50) NOT NULL,
+    `player_id` int(8) NOT NULL,
     `first_name` char(50) NOT NULL,
     `last_name` char(50) NOT NULL,
     `bdate` char(50) NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE `PLAYERS`(
 );
 
 CREATE TABLE `INDIVIDUAL_STATS`(
-    `player_id` char(50) NOT NULL,
+    `player_id` int(8) NOT NULL,
     `first_name` char(50) NOT NULL,
     `last_name` char(50) NOT NULL,
     `position` char(50) NOT NULL,
@@ -98,4 +98,36 @@ CREATE TABLE `TEAM_STATS`(
     `goals_for` int(8) NOT NULL,
     `goals_against` int(8) NOT NULL,
     PRIMARY KEY (`team_name`)
+);
+
+CREATE TABLE `MATCH_PLAYER_LIST`(
+    `player_id` int(8) NOT NULL,
+    `game_id` int(8) NOT NULL,
+    `team_name` char(50) NOT NULL,
+    `first_name` char(50) NOT NULL,
+    `last_name` char(50) NOT NULL,
+    `position` char(50) NOT NULL,
+    `status` char(50) NOT NULL, 
+    `starter` char(50) NOT NULL, 
+    PRIMARY KEY (`player_id`, `game_id`)
+);
+
+CREATE TABLE `HOME_CAPTAINS`(
+    `player_id` int(8) NOT NULL,
+    `game_id` int(8) NOT NULL,
+    `team_name` char(50) NOT NULL,
+    `main_home_captain` char(50) NOT NULL,
+    `alternate1_home_captain` char(50) NOT NULL,
+    `alternate2_home_captain` char(50) NOT NULL,
+    PRIMARY KEY (`player_id`, `game_id`)
+);
+
+CREATE TABLE `AWAY_CAPTAINS`(
+    `player_id` int(8) NOT NULL,
+    `game_id` int(8) NOT NULL,
+    `team_name` char(50) NOT NULL,
+    `main_away_captain` char(50) NOT NULL,
+    `alternate1_away_captain` char(50) NOT NULL,
+    `alternate2_away_captain` char(50) NOT NULL,
+    PRIMARY KEY (`player_id`, `game_id`)
 );
