@@ -131,3 +131,21 @@ CREATE TABLE `AWAY_CAPTAINS`(
     `alternate2_away_captain` char(50) NOT NULL,
     PRIMARY KEY (`player_id`, `game_id`)
 );
+
+CREATE TABLE `GM_TABLE`(
+    `general_manager_name` char(50) NOT NULL,
+    `team_name` char(50) NOT NULL, 
+    PRIMARY KEY (`team_name`)
+);
+
+CREATE TABLE `OWNER_TABLE`(
+    `owner_name` char(50) NOT NULL,
+    `team_name` char(50) NOT NULL, 
+    PRIMARY KEY (`team_name`)
+);
+
+CREATE TABLE `HEAD_COACH_TABLE`(
+    `head_coach_name` char(50) NOT NULL,
+    `team_name` char(50) NOT NULL, 
+    PRIMARY KEY (`team_name`)
+);
