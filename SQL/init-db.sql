@@ -12,8 +12,8 @@ CREATE TABLE `FRANCHISES`(
     `team_name` char(50) NOT NULL,
     `city` char(50) NOT NULL,
     `division` char(50) NOT NULL,
-    `ranking` char(50) NOT NULL,
-    `sponsors` char(50) NOT NULL,
+    `ranking` char(50),
+    `sponsors` char(50),
     `arena_name` char(50) NOT NULL, /*Home arena? */
     `wins` int(8) NOT NULL,
     `losses` int(8) NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE `FRANCHISES`(
 );
 
 CREATE TABLE `GAMES`(
-    `game_id` int(8) NOT NULL,
+    `game_id` int(8) NOT NULL UNIQUE,
     `start_date` date NOT NULL,
     `start_time` time NOT NULL,
     `city_host` char(50) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `GAMES`(
 );
 
 CREATE TABLE `INDIVIDUAL_MATCH`(
-    `game_id` int(8) NOT NULL,
+    `game_id` int(8) NOT NULL UNIQUE,
     `home_team` char(50) NOT NULL,
     `away_team` char(50) NOT NULL,
     `home_team_goals` int(3) NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE `INDIVIDUAL_MATCH`(
 );
 
 CREATE TABLE `PLAYERS`(
-    `player_id` int(8) NOT NULL,
+    `player_id` int(8) NOT NULL UNIQUE,
     `first_name` char(50) NOT NULL,
     `last_name` char(50) NOT NULL,
     `bdate` char(50) NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE `PLAYERS`(
 );
 
 CREATE TABLE `INDIVIDUAL_STATS`(
-    `player_id` int(8) NOT NULL,
+    `player_id` int(8) NOT NULL UNIQUE,
     `first_name` char(50) NOT NULL,
     `last_name` char(50) NOT NULL,
     `position` char(50) NOT NULL,
@@ -101,8 +101,8 @@ CREATE TABLE `TEAM_STATS`(
 );
 
 CREATE TABLE `MATCH_PLAYER_LIST`(
-    `player_id` int(8) NOT NULL,
-    `game_id` int(8) NOT NULL,
+    `player_id` int(8) NOT NULL UNIQUE,
+    `game_id` int(8) NOT NULL UNIQUE,
     `team_name` char(50) NOT NULL,
     `first_name` char(50) NOT NULL,
     `last_name` char(50) NOT NULL,
@@ -113,8 +113,8 @@ CREATE TABLE `MATCH_PLAYER_LIST`(
 );
 
 CREATE TABLE `HOME_CAPTAINS`(
-    `player_id` int(8) NOT NULL,
-    `game_id` int(8) NOT NULL,
+    `player_id` int(8) NOT NULL UNIQUE,
+    `game_id` int(8) NOT NULL UNIQUE,
     `team_name` char(50) NOT NULL,
     `main_home_captain` char(50) NOT NULL,
     `alternate1_home_captain` char(50) NOT NULL,
@@ -123,8 +123,8 @@ CREATE TABLE `HOME_CAPTAINS`(
 );
 
 CREATE TABLE `AWAY_CAPTAINS`(
-    `player_id` int(8) NOT NULL,
-    `game_id` int(8) NOT NULL,
+    `player_id` int(8) NOT NULL UNIQUE,
+    `game_id` int(8) NOT NULL UNIQUE,
     `team_name` char(50) NOT NULL,
     `main_away_captain` char(50) NOT NULL,
     `alternate1_away_captain` char(50) NOT NULL,
