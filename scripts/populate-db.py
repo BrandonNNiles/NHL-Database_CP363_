@@ -1,14 +1,13 @@
 """
     Script to fetch, manipulate, and populate NHL Database
     Author: Brandon Niles
-    Dependancies: Requests module
+    Dependancies: 
+        pip install requests
 """
 
 #imports
 import requests as req
 import json
-
-#setup
 
 """
 apiConnect(url)
@@ -18,14 +17,17 @@ apiConnect(url)
     Prints output based on response
 """
 def apiConnect(url):
+    print("Attempting to connect to " + url)
     res = req.get(url)
     print("API connection: " + res.reason)
-    return res
+    return res.json()
 
 myUrl = "https://statsapi.web.nhl.com/api/v1/teams"
-apiConnect(myUrl)
+foundTeams = 0
+for team in apiConnect(myUrl)['teams']:
+    for index, entry in team.items():
+        if index == 'teamName':
+            foundTeams += 1
+            print(entry)
 
-
-#fetch data
-
-#push data
+print("Found " + str(foundTeams) + " teams.")
