@@ -109,7 +109,7 @@ CREATE TABLE `MATCH_PLAYER_LIST`(
     `position` char(50) NOT NULL,
     `status` char(50) NOT NULL, 
     `starter` char(50) NOT NULL, 
-    PRIMARY KEY (`player_id`, `game_id`) --What PK should be here?
+    PRIMARY KEY (`player_id`, `game_id`) /*What PK should be here?*/
 );
 
 CREATE TABLE `HOME_CAPTAINS`(
@@ -119,7 +119,7 @@ CREATE TABLE `HOME_CAPTAINS`(
     `main_home_captain` char(50) NOT NULL,
     `alternate1_home_captain` char(50) NOT NULL,
     `alternate2_home_captain` char(50) NOT NULL,
-    PRIMARY KEY (`player_id`, `game_id`)--What PK should be here?
+    PRIMARY KEY (`player_id`, `game_id`)/*What PK should be here?*/
 );
 
 CREATE TABLE `AWAY_CAPTAINS`(
@@ -129,7 +129,7 @@ CREATE TABLE `AWAY_CAPTAINS`(
     `main_away_captain` char(50) NOT NULL,
     `alternate1_away_captain` char(50) NOT NULL,
     `alternate2_away_captain` char(50) NOT NULL,
-    PRIMARY KEY (`player_id`, `game_id`) --What PK should be here?
+    PRIMARY KEY (`player_id`, `game_id`) /*What PK should be here?*/
 );
 
 CREATE TABLE `GM_TABLE`(
