@@ -9,6 +9,7 @@
 import requests as req
 import json
 
+#Methods
 """
 apiConnect(url)
     url: string
