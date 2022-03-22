@@ -13,7 +13,7 @@ import mysql.connector
 
 #Methods
 """
-apiConnect(url)
+apiFetch(url)
     url: string
         ->url of API to connect to
     Returns the result of connecting to a provided URL
@@ -64,12 +64,36 @@ def getLoginInfo(filepath):
         print("Error, file: " + filepath + " not found!")
 
 myUrl = "https://statsapi.web.nhl.com/api/v1/teams"
-foundTeams = 0
-for team in apiFetch(myUrl)['teams']:
-    for index, entry in team.items():
-        if index == 'teamName':
-            foundTeams += 1
-            #print(entry)
-
 #print("Found " + str(foundTeams) + " teams.")
-dbConnect(*getLoginInfo('config/login.json'))
+"""
+populateDB()
+    fills tables with data
+"""
+def populateDB():
+    db = dbConnect(*getLoginInfo('config/login.json'))
+    c = db.cursor()
+
+    #Franchises
+    for team in apiFetch(myUrl)['teams']:
+        stats = apiFetch(myUrl + "/" + str(team['id']) + "/stats")['stats'][0]['splits'][0]['stat']
+        stats2 = apiFetch(myUrl + "/" + str(team['id']) + "/stats")['stats'][1]['splits'][0]['stat']
+        d = {
+            "team_name": team['name'],
+            "city": team['locationName'],
+            "division": team['division']['nameShort'],
+            "ranking": stats2['pts'],
+            "sponsors": "???",
+            "arena_name": team['venue']['name'],
+            "wins": stats['wins'],
+            "losses": stats['losses']
+        }
+
+        if d["team_name"] is not None: #we don't want to push nulls
+            c.execute("INSERT INTO FRANCHISES VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
+            (list(d.values())))
+
+
+
+    db.commit() #must be last line
+
+populateDB()
