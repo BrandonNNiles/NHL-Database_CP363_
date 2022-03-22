@@ -72,4 +72,4 @@ for team in apiFetch(myUrl)['teams']:
             #print(entry)
 
 #print("Found " + str(foundTeams) + " teams.")
-dbConnect(*getLoginInfo('scripts/login.json'))
+dbConnect(*getLoginInfo('config/login.json'))
