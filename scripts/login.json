@@ -1,0 +1,8 @@
+{
+    "login_info": {
+        "host": "YOUR_HOST_IP",
+        "user": "YOUR_USERNAME",
+        "pass": "YOUR_PASSWORD",
+        "database": "YOUR_DB_NAME"
+    }
+}
