@@ -13,7 +13,6 @@ CREATE TABLE `FRANCHISES`(
     `city` char(50) NOT NULL,
     `division` char(50) NOT NULL,
     `ranking` char(50) NOT NULL,
-    `sponsors` char(50) NOT NULL,
     `arena_name` char(50) NOT NULL, /*Home arena? */
     `wins` int(8) NOT NULL,
     `losses` int(8) NOT NULL,
