@@ -135,17 +135,17 @@ CREATE TABLE `AWAY_CAPTAINS`(
 CREATE TABLE `GM_TABLE`(
     `general_manager_name` char(50) NOT NULL,
     `team_name` char(50) NOT NULL, 
-    PRIMARY KEY (`general_manager_name`)
+    PRIMARY KEY (`team_name`)
 );
 
 CREATE TABLE `OWNER_TABLE`(
     `owner_name` char(50) NOT NULL,
     `team_name` char(50) NOT NULL, 
-    PRIMARY KEY (`owner_name`)
+    PRIMARY KEY (`team_name`)
 );
 
 CREATE TABLE `HEAD_COACH_TABLE`(
     `head_coach_name` char(50) NOT NULL,
     `team_name` char(50) NOT NULL, 
-    PRIMARY KEY (`head_coach_name`)
+    PRIMARY KEY (`team_name`)
 );
