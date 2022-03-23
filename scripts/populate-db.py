@@ -3,7 +3,7 @@
     Author: Brandon Niles
     Dependancies: 
         pip install requests
-        pip install mysql-connector
+        pip install mysql-connector-python
 """
 
 #imports
@@ -82,15 +82,20 @@ def populateDB():
             "city": team['locationName'],
             "division": team['division']['nameShort'],
             "ranking": stats2['pts'],
-            "sponsors": "???",
             "arena_name": team['venue']['name'],
             "wins": stats['wins'],
             "losses": stats['losses']
         }
 
         if d["team_name"] is not None: #we don't want to push nulls
-            c.execute("INSERT INTO FRANCHISES VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
+            c.execute("INSERT INTO FRANCHISES VALUES (%s, %s, %s, %s, %s, %s, %s)",
             (list(d.values())))
+            c.execute("INSERT INTO HEAD_COACH_TABLE VALUES (%s, %s)",
+            (apiFetch("https://api.namefake.com/")['name'], d["team_name"]))
+            c.execute("INSERT INTO OWNER_TABLE VALUES (%s, %s)",
+            (apiFetch("https://api.namefake.com/")['name'], d["team_name"]))
+            c.execute("INSERT INTO GM_TABLE VALUES (%s, %s)",
+            (apiFetch("https://api.namefake.com/")['name'], d["team_name"]))
 
 
 
