@@ -56,7 +56,8 @@ CREATE TABLE `PLAYERS`(
     `draft_number` int(8) NOT NULL,
     `status` char(50) NOT NULL, 
     `team_name` char(50) NOT NULL, 
-    PRIMARY KEY (`player_id`)
+    PRIMARY KEY (`player_id`),
+    FOREIGN KEY (`team_name`) REFERENCES FRANCHISES(`team_name`)
 );
 
 CREATE TABLE `INDIVIDUAL_STATS`(
@@ -77,7 +78,8 @@ CREATE TABLE `INDIVIDUAL_STATS`(
     `time_on_ice` int(8) NOT NULL,
     `primary_assists` int(8) NOT NULL,
     `secondary_assists` int(8) NOT NULL,
-    PRIMARY KEY (`player_id`)
+    PRIMARY KEY (`player_id`),
+    
 );
 
 CREATE TABLE `TEAM_STATS`(
