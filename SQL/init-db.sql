@@ -77,7 +77,8 @@ CREATE TABLE `INDIVIDUAL_STATS`(
     `time_on_ice` int(8) NOT NULL,
     `primary_assists` int(8) NOT NULL,
     `secondary_assists` int(8) NOT NULL,
-    PRIMARY KEY (`player_id`)
+    PRIMARY KEY (`player_id`),
+    
 );
 
 CREATE TABLE `TEAM_STATS`(
