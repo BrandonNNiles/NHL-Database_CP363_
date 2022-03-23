@@ -78,7 +78,7 @@ CREATE TABLE `INDIVIDUAL_STATS`(
     `primary_assists` int(8) NOT NULL,
     `secondary_assists` int(8) NOT NULL,
     PRIMARY KEY (`player_id`),
-    
+    FOREIGN KEY (`goals
 );
 
 CREATE TABLE `TEAM_STATS`(
