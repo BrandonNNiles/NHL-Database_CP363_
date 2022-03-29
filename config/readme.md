@@ -1,14 +1,14 @@
-#Login Info
+# Login Info
 Complete login info for Python script to connect to DB.
 
-##**Parameters**:
-###host
+## **Parameters**:
+### host
 Host to connect to (ip)
 If local machine, host is localhost.
-###user
+### user
 Username of connection.
-###pass
+### pass
 Password of connection
-###database
+### database
 Specific database you are trying to access.
 By default, database is nhl363.
