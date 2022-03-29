@@ -73,7 +73,7 @@ CREATE TABLE `INDIVIDUAL_STATS`(
     `games_played` int(8) NOT NULL,
     `plus_minus` int(8) NOT NULL,
     `shots` int(8) NOT NULL,
-    `shooting_percentage` int(8) NOT NULL,
+    `shooting_percentage` varchar(6) NOT NULL,
     `time_on_ice` int(8) NOT NULL,
     `primary_assists` int(8) NOT NULL,
     `secondary_assists` int(8) NOT NULL,
