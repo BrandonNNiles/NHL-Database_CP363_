@@ -19,7 +19,7 @@ If local machine, host is localhost.
 ### user
 Username of connection.
 ### pass
-Password of connection
+Password of connection.
 ### database
 Specific database you are trying to access.  
 By default, database is nhl363.
