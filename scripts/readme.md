@@ -2,7 +2,7 @@
 Scripts created in external forms to provide additional functionality to the database.    
 Currently only consists of one file: *populate-db.py*.  
 ## **Purpose**:
-*populate-db.py* will populate important tables of the data with **REAL** and **up-to-date*[^1].  
+*populate-db.py* will populate important tables of the data with **REAL** and *up-to-date*[^1].  
 Other tables of the database will be populated with dummy data due to deadline time constraints for the project assignment.  
 ## **Instructions**:
 1. Initialize the database (see /sql/readme.md).
