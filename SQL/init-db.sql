@@ -13,7 +13,7 @@ CREATE TABLE `FRANCHISES`(
     `city` char(50) NOT NULL,
     `division` char(50) NOT NULL,
     `ranking` char(50),
-    `arena_name` char(50) NOT NULL, /*Home arena? */
+    `arena_name` char(50) NOT NULL,
     `wins` int(8) NOT NULL,
     `losses` int(8) NOT NULL,
     PRIMARY KEY (`team_name`)
@@ -49,7 +49,7 @@ CREATE TABLE `PLAYERS`(
     `player_id` int(8) NOT NULL UNIQUE,
     `first_name` char(50) NOT NULL,
     `last_name` char(50) NOT NULL,
-    `bdate` char(50) NOT NULL,
+    `bdate` date NOT NULL,
     `position` char(50) NOT NULL,
     `draft_round` int(8) NOT NULL,
     `draft_number` int(8) NOT NULL,
@@ -77,8 +77,7 @@ CREATE TABLE `INDIVIDUAL_STATS`(
     `time_on_ice` int(8) NOT NULL,
     `primary_assists` int(8) NOT NULL,
     `secondary_assists` int(8) NOT NULL,
-    PRIMARY KEY (`player_id`),
-    FOREIGN KEY (`goals
+    PRIMARY KEY (`player_id`)
 );
 
 CREATE TABLE `TEAM_STATS`(
@@ -110,7 +109,8 @@ CREATE TABLE `MATCH_PLAYER_LIST`(
     `position` char(50) NOT NULL,
     `status` char(50) NOT NULL, 
     `starter` char(50) NOT NULL, 
-    PRIMARY KEY (`player_id`, `game_id`) /*What PK should be here?*/
+    PRIMARY KEY (`player_id`, `game_id`),
+    FOREIGN KEY (`team_name`) REFERENCES FRANCHISES(`team_name`)
 );
 
 CREATE TABLE `HOME_CAPTAINS`(
@@ -120,7 +120,8 @@ CREATE TABLE `HOME_CAPTAINS`(
     `main_home_captain` char(50) NOT NULL,
     `alternate1_home_captain` char(50) NOT NULL,
     `alternate2_home_captain` char(50) NOT NULL,
-    PRIMARY KEY (`player_id`, `game_id`)/*What PK should be here?*/
+    PRIMARY KEY (`player_id`, `game_id`),
+    FOREIGN KEY (`team_name`) REFERENCES FRANCHISES(`team_name`)
 );
 
 CREATE TABLE `AWAY_CAPTAINS`(
@@ -130,7 +131,8 @@ CREATE TABLE `AWAY_CAPTAINS`(
     `main_away_captain` char(50) NOT NULL,
     `alternate1_away_captain` char(50) NOT NULL,
     `alternate2_away_captain` char(50) NOT NULL,
-    PRIMARY KEY (`player_id`, `game_id`) /*What PK should be here?*/
+    PRIMARY KEY (`player_id`, `game_id`),
+    FOREIGN KEY (`team_name`) REFERENCES FRANCHISES(`team_name`)
 );
 
 CREATE TABLE `GM_TABLE`(
