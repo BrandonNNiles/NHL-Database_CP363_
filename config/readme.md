@@ -1,15 +1,15 @@
 # Login Info
 Complete login info for Python script to connect to DB.  
-    *Example*:
+    *Example*:  
     ```
-    {
-    "login_info": {
-        "host": "localhost",
-        "user": "root",
-        "pass": "myPassword",
-        "database": "nhl363"
-    }
-}
+    {  
+    "login_info": {  
+        "host": "localhost",  
+        "user": "root",  
+        "pass": "myPassword",  
+        "database": "nhl363"  
+    }  
+}  
     ```
 
 ## **Parameters**:
