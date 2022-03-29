@@ -1,5 +1,6 @@
 # Backups
 Backups from sample data inserted into tables.  
+Backups are present in two forms, individual and full[^1].
 ## **Folders**:
 ### Full
 Entire backup compressed into a single SQL file.
